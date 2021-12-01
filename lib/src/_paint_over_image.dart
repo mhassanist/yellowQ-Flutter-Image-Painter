@@ -44,6 +44,7 @@ class ImagePainter extends StatefulWidget {
       this.onColorChanged,
       this.onStrokeWidthChanged,
       this.onPaintModeChanged,
+      this.fractionalOffset,
       this.textDelegate})
       : super(key: key);
 
@@ -318,6 +319,7 @@ class ImagePainter extends StatefulWidget {
   final ValueChanged<double>? onStrokeWidthChanged;
 
   final ValueChanged<PaintMode>? onPaintModeChanged;
+  final FractionalOffset? fractionalOffset;
 
   //the text delegate
   final TextDelegate? textDelegate;
@@ -339,6 +341,7 @@ class ImagePainterState extends State<ImagePainter> {
   Offset? _start, _end;
   int _strokeMultiplier = 1;
   late TextDelegate textDelegate;
+
   @override
   void initState() {
     super.initState();
@@ -444,7 +447,11 @@ class ImagePainterState extends State<ImagePainter> {
       valueListenable: _isLoaded,
       builder: (_, loaded, __) {
         if (loaded) {
-          return widget.isSignature ? _paintSignature() : _paintImage();
+          return widget.isSignature
+              ? _paintSignature()
+              : widget.fractionalOffset == null
+                  ? _paintImage(FractionalOffset.center)
+                  : _paintImage(widget.fractionalOffset!);
         } else {
           return Container(
             height: widget.height ?? double.maxFinite,
@@ -459,7 +466,7 @@ class ImagePainterState extends State<ImagePainter> {
   }
 
   ///paints image on given constrains for drawing if image is not null.
-  Widget _paintImage() {
+  Widget _paintImage(FractionalOffset fractionalOffset) {
     return Container(
       height: widget.height ?? double.maxFinite,
       width: widget.width ?? double.maxFinite,
@@ -468,7 +475,7 @@ class ImagePainterState extends State<ImagePainter> {
           if (widget.controlsAtTop) _buildControls(),
           Expanded(
             child: FittedBox(
-              alignment: FractionalOffset.center,
+              alignment: fractionalOffset,
               child: ClipRect(
                 child: ValueListenableBuilder<Controller>(
                   valueListenable: _controller,
