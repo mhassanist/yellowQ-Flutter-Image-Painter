@@ -68,6 +68,7 @@ class ImagePainter extends StatefulWidget {
     ValueChanged<Color>? onColorChanged,
     ValueChanged<double>? onStrokeWidthChanged,
     TextDelegate? textDelegate,
+    FractionalOffset? fractionalOffset,
   }) {
     return ImagePainter._(
       key: key,
@@ -88,6 +89,7 @@ class ImagePainter extends StatefulWidget {
       onColorChanged: onColorChanged,
       onStrokeWidthChanged: onStrokeWidthChanged,
       textDelegate: textDelegate,
+      fractionalOffset: fractionalOffset,
     );
   }
 
@@ -197,6 +199,7 @@ class ImagePainter extends StatefulWidget {
     ValueChanged<Color>? onColorChanged,
     ValueChanged<double>? onStrokeWidthChanged,
     TextDelegate? textDelegate,
+    FractionalOffset? fractionalOffset,
   }) {
     return ImagePainter._(
       key: key,
@@ -217,6 +220,7 @@ class ImagePainter extends StatefulWidget {
       onColorChanged: onColorChanged,
       onStrokeWidthChanged: onStrokeWidthChanged,
       textDelegate: textDelegate,
+      fractionalOffset: fractionalOffset,
     );
   }
 
@@ -235,6 +239,7 @@ class ImagePainter extends StatefulWidget {
     ValueChanged<Color>? onColorChanged,
     ValueChanged<double>? onStrokeWidthChanged,
     TextDelegate? textDelegate,
+    FractionalOffset? fractionalOffset,
   }) {
     return ImagePainter._(
       key: key,
@@ -252,6 +257,7 @@ class ImagePainter extends StatefulWidget {
       onColorChanged: onColorChanged,
       onStrokeWidthChanged: onStrokeWidthChanged,
       textDelegate: textDelegate,
+      fractionalOffset: fractionalOffset,
     );
   }
 
