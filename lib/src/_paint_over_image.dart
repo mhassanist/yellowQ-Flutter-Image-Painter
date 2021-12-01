@@ -94,26 +94,25 @@ class ImagePainter extends StatefulWidget {
   }
 
   ///Constructor for loading image from assetPath.
-  factory ImagePainter.asset(
-    String path, {
-    required Key key,
-    double? height,
-    double? width,
-    bool? scalable,
-    Widget? placeholderWidget,
-    List<Color>? colors,
-    Widget? brushIcon,
-    Widget? undoIcon,
-    Widget? clearAllIcon,
-    Widget? colorIcon,
-    PaintMode? initialPaintMode,
-    double? initialStrokeWidth,
-    Color? initialColor,
-    ValueChanged<PaintMode>? onPaintModeChanged,
-    ValueChanged<Color>? onColorChanged,
-    ValueChanged<double>? onStrokeWidthChanged,
-    TextDelegate? textDelegate,
-  }) {
+  factory ImagePainter.asset(String path,
+      {required Key key,
+      double? height,
+      double? width,
+      bool? scalable,
+      Widget? placeholderWidget,
+      List<Color>? colors,
+      Widget? brushIcon,
+      Widget? undoIcon,
+      Widget? clearAllIcon,
+      Widget? colorIcon,
+      PaintMode? initialPaintMode,
+      double? initialStrokeWidth,
+      Color? initialColor,
+      ValueChanged<PaintMode>? onPaintModeChanged,
+      ValueChanged<Color>? onColorChanged,
+      ValueChanged<double>? onStrokeWidthChanged,
+      TextDelegate? textDelegate,
+      FractionalOffset? fractionalOffset}) {
     return ImagePainter._(
       key: key,
       assetPath: path,
@@ -133,6 +132,7 @@ class ImagePainter extends StatefulWidget {
       onColorChanged: onColorChanged,
       onStrokeWidthChanged: onStrokeWidthChanged,
       textDelegate: textDelegate,
+      fractionalOffset: fractionalOffset,
     );
   }
 

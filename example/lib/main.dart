@@ -71,15 +71,14 @@ class _ImagePainterExampleState extends State<ImagePainterExample> {
           )
         ],
       ),
-      body: ImagePainter.asset(
-        "assets/sample.jpg",
-        key: _imageKey,
-        scalable: false,
-        textDelegate: DutchTextDelegate(),
-        initialStrokeWidth: 2,
-        initialColor: Colors.green,
-        initialPaintMode: PaintMode.line,
-      ),
+      body: ImagePainter.asset("assets/sample.jpg",
+          key: _imageKey,
+          scalable: false,
+          textDelegate: DutchTextDelegate(),
+          initialStrokeWidth: 2,
+          initialColor: Colors.green,
+          initialPaintMode: PaintMode.line,
+          fractionalOffset: FractionalOffset.topLeft),
     );
   }
 }
